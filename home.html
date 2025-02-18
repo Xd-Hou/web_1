@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泥生万象</title>
+    <style>
+        /* 设置视频为全屏并固定在页面上 */
+        #background-video {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100vw;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
+            z-index: -1; /* 将视频置于其他内容之后 */
+            object-fit: cover; /* 确保视频在保持宽高比的情况下填充容器 */
+        }
+        /* 取消页面滚动条 */
+        body {
+            overflow: hidden;
+        }
+        button {
+            height: 100%;
+            width: 8%;
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted id="background-video">
+        <source src="./video/主页/泥生万象界面/泥生万象界面/泥生万象首页01.mp4" type="video/mp4">
+    </video>
+    <div style="position: absolute; color: transparent; top: 8.3%; left: 25%; min-width: 100vw; height: 5%;">
+        <button onclick="window.location.href='./泥生万象.html'" style="position: relative; top: 25px; left: 40px;"></button>
+        <button onclick="window.location.href='./泥梦祥境.html'" style="position: relative; top: 25px; left: 63px;"></button>
+        <button onclick="window.location.href='./纹彩泥韵.html'" style="position: relative; top: 25px; left: 85px;"></button>
+        <button onclick="window.location.href='./抽卡集祥.html'" style="position: relative; top: 25px; left: 110px;"></button>
+        <button onclick="window.location.href='./个人中心.html'" style="position: relative; top: 25px; left: 135px;"></button>
+    </div>
+    <button onclick="changeBackgroundVideo('./video/主页/工艺流程动态化/工艺流程动态化/工艺流程动态化.mp4', './music/音乐及音效/音乐及音效/泥生万象音乐.mp3')" style="position: absolute; top: 65%; left: 3%; height: 100px; width: 400px;"></button>
+    <button onclick="window.location.href='./home.html'" style="position: absolute; top: 37%; right: 6%; height: 100px; width: 400px;"></button>
+    <button onclick="changeBackgroundVideo('./video/主页/工艺流程动态化/工艺流程动态化/工艺流程动态化.mp4', './music/音乐及音效/音乐及音效/泥生万象音乐.mp3')" style="position: absolute; top: 51%; right: 6%; height: 100px; width: 400px;"></button>
+    <script>
+        function changeBackgroundVideo(newVideoSrc, newMusicSrc) {
+            var video = document.getElementById('background-video');
+            var sources = video.getElementsByTagName('source');
+            for (var i = 0; i < sources.length; i++) {
+                sources[i].src = newVideoSrc;
+            }
+            video.load();
+            video.play();
+            // 创建并播放音乐
+            var audio = new Audio(newMusicSrc);
+            audio.play();
+        }
+    </script>
+</body>
+</html>

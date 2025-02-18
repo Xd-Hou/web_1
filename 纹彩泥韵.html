@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>纹彩泥韵</title>
+    <style>  
+        body {
+            background-image: url('./video/主页/纹彩泥韵界面/纹彩泥韵界面/纹彩泥韵首页01-（待完善-后面会补充一页）.jpg'); /* 替换为你的图片路径 */
+            background-size: cover; /* 确保图片覆盖整个页面 */
+            background-repeat: no-repeat; /* 防止图片重复 */
+            background-attachment: fixed; /* 固定背景图片 */
+            overflow: hidden;
+        }
+        button {
+            height: 100%;
+            width: 8%;
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+        }
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            max-width: 100%;
+        }
+        .page {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .page.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page" style="background-image: url(./video/主页/纹彩泥韵界面/纹彩泥韵界面/纹彩泥韵首页01-（待完善-后面会补充一页）.jpg); background-size: cover; background-position: center center;">
+            <div style="position: absolute; color: transparent; top: 8.3%; left: 25%; min-width: 100vw; height: 5%;">
+                <button onclick="window.location.href='./泥生万象.html'" style="position: relative; top: 25px; left: 40px;"></button>
+                <button onclick="window.location.href='./泥梦祥境.html'" style="position: relative; top: 25px; left: 63px;"></button>
+                <button onclick="window.location.href='./纹彩泥韵.html'" style="position: relative; top: 25px; left: 85px;"></button>
+                <button onclick="window.location.href='./抽卡集祥.html'" style="position: relative; top: 25px; left: 110px;"></button>
+                <button onclick="window.location.href='./个人中心.html'" style="position: relative; top: 25px; left: 135px;"></button>
+            </div>
+        </div>
+        <div class="page" style="background-image: url(./video/主页/纹彩泥韵界面/纹彩泥韵界面/纹彩泥韵首页02.jpg); background-size: cover; background-position: center center;">
+            <div style="position: absolute; color: transparent; top: 8.3%; left: 25%; min-width: 100vw; height: 5%;">
+                <button onclick="window.location.href='./泥生万象.html'" style="position: relative; top: 25px; left: 40px;"></button>
+                <button onclick="window.location.href='./泥梦祥境.html'" style="position: relative; top: 25px; left: 63px;"></button>
+                <button onclick="window.location.href='./纹彩泥韵.html'" style="position: relative; top: 25px; left: 85px;"></button>
+                <button onclick="window.location.href='./抽卡集祥.html'" style="position: relative; top: 25px; left: 110px;"></button>
+                <button onclick="window.location.href='./个人中心.html'" style="position: relative; top: 25px; left: 135px;"></button>
+            </div>
+        </div>
+        <div class="page" style="background-image: url(./video/主页/纹彩泥韵界面/纹彩泥韵界面/纹彩泥韵首页03.jpg); background-size: cover; background-position: center center;">
+            <div style="position: absolute; color: transparent; top: 8.3%; left: 25%; min-width: 100vw; height: 5%;">
+                <button onclick="window.location.href='./泥生万象.html'" style="position: relative; top: 25px; left: 40px;"></button>
+                <button onclick="window.location.href='./泥梦祥境.html'" style="position: relative; top: 25px; left: 63px;"></button>
+                <button onclick="window.location.href='./纹彩泥韵.html'" style="position: relative; top: 25px; left: 85px;"></button>
+                <button onclick="window.location.href='./抽卡集祥.html'" style="position: relative; top: 25px; left: 110px;"></button>
+                <button onclick="window.location.href='./个人中心.html'" style="position: relative; top: 25px; left: 135px;"></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 0;
+
+        function showPage(n) {
+            pages.forEach((page, index) => {
+                if (index === n) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+
+        function nextPage() {
+            currentPage = (currentPage + 1) % pages.length;
+            showPage(currentPage);
+
+            const video = document.getElementById(`video${currentPage + 1}`);
+            if (video) {
+                video.play();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage === 0) {
+                currentPage = pages.length - 1;
+            } else {
+                currentPage--;
+            }
+            showPage(currentPage);
+
+            const video = document.getElementById(`video${currentPage + 1}`);
+            if (video) {
+                video.play();
+            }
+        }
+
+        document.addEventListener('wheel', function (event) {
+            if (event.deltaY > 0) {
+                nextPage();
+            } else {
+                prevPage();
+            }
+        });
+    </script>
+</body>
+</html>

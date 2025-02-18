@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽卡集祥</title>
+    <style>  
+        body {
+            background-size: cover; /* 确保图片覆盖整个页面 */
+            background-repeat: no-repeat; /* 防止图片重复 */
+            background-attachment: fixed; /* 固定背景图片 */
+            overflow: hidden;
+        }
+        button {
+            height: 100%;
+            width: 8%;
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+        }
+        .page-content {
+            display: none;
+        }
+        #home-page {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="home-page" class="page-content">
+        <img src="./video/主页/抽卡集祥及个人中心界面/抽卡集祥及个人中心界面/抽卡集祥-首页界面01.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <div style="position: absolute; color: transparent; top: 8.3%; left: 25%; min-width: 100vw; height: 5%;">
+            <button onclick="window.location.href='./泥生万象.html'" style="position: relative; top: 25px; left: 40px;"></button>
+            <button onclick="window.location.href='./泥梦祥境.html'" style="position: relative; top: 25px; left: 63px;"></button>
+            <button onclick="window.location.href='./纹彩泥韵.html'" style="position: relative; top: 25px; left: 85px;"></button>
+            <button onclick="window.location.href='./抽卡集祥.html'" style="position: relative; top: 25px; left: 110px;"></button>
+            <button onclick="window.location.href='./个人中心.html'" style="position: relative; top: 25px; left: 135px;"></button>
+        </div>
+        <button onclick="showNewPage()" style="position: absolute; top: 35%; right: 7%; height: 55%; width: 86%;"></button>
+    </div>
+    <div id="new-page" class="page-content">
+        <video autoplay muted id="random-video" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%;"></video>
+        <div style="position: absolute; top: 15%; left: 5%;">
+            <a href="./抽卡集祥.html">
+                <img src="./img/箭头.gif" alt="个人中心页面" style="background-color: transparent; width: 50px; transform: rotate(270deg);">
+            </a>
+        </div>
+    </div>
+    <script>
+        // 定义背景图片数组
+        const videoPaths = [
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/等娶罐.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/挂虎.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/关公.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/猴子抱桃.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/金蟾.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/连年有余.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/牛头.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/麒麟送子.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/狮子.mp4',
+            './video/主页/抽卡动态视频-第二版/抽卡动态视频-第二版/钟馗.mp4'
+            // 添加更多视频路径
+        ];
+        function showNewPage() {
+            // 创建一个音频元素
+            const audio = new Audio('./music/音乐及音效/音乐及音效/抽卡音效.mp3'); // 替换为你的音乐文件路径
+            // 播放音乐
+            audio.play();
+            // 隐藏首页
+            document.getElementById('home-page').style.display = 'none';
+            // 显示新页面
+            document.getElementById('new-page').style.display = 'block';
+
+            // 随机选择一个视频
+            const randomIndex = Math.floor(Math.random() * videoPaths.length);
+            const randomVideo = videoPaths[randomIndex];
+
+            // 设置视频源
+            document.getElementById('random-video').src = randomVideo;
+        }
+    </script>
+</body>
+</html>

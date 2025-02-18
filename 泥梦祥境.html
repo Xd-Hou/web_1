@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泥梦祥境</title>
+    <style>
+        /* 设置视频为全屏并固定在页面上 */
+        #background-video {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100vw;
+            max-height: 100vh;
+            width: auto;
+            height: auto;
+            z-index: -1; /* 将视频置于其他内容之后 */
+            object-fit: cover; /* 确保视频在保持宽高比的情况下填充容器 */
+        }
+        /* 取消页面滚动条 */
+        body {
+            overflow: hidden;
+        }
+        button {
+            height: 100%;
+            width: 8%;
+            border-radius: 20px;
+            background-color: transparent;
+            border: none;
+        }
+        .page {
+            display: none;
+        }
+        .textarea {
+            word-wrap: break-word; 
+            word-break: break-all; 
+            background-color: transparent; 
+            border-radius: 5%; 
+            border: none;
+            font-family: '微软雅黑'; 
+            font-size: large;
+            outline: none;
+            line-height: 1.5;
+            padding: 2%;
+            resize: none;
+            overflow: hidden;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/泥梦祥境-首页01.mp4" type="video/mp4">
+    </video>
+    <div style="position: absolute; color: transparent; top: 8.3%; left: 25%; min-width: 100vw; height: 5%;">
+        <button onclick="window.location.href='./泥生万象.html'" style="position: relative; top: 25px; left: 40px;"></button>
+        <button onclick="window.location.href='./泥梦祥境.html'" style="position: relative; top: 25px; left: 63px;"></button>
+        <button onclick="window.location.href='./纹彩泥韵.html'" style="position: relative; top: 25px; left: 85px;"></button>
+        <button onclick="window.location.href='./抽卡集祥.html'" style="position: relative; top: 25px; left: 110px;"></button>
+        <button onclick="window.location.href='./个人中心.html'" style="position: relative; top: 25px; left: 135px;"></button>
+    </div>
+    <button onclick="showPage('抽卡页面')" style="position: absolute; top: 65%; right: 3%; height: 100px; width: 400px;"></button>
+    <div id="抽卡页面" class="page">
+        <img src="./video/主页/泥梦祥境界面/泥梦祥境界面/祈福对象选择02.jpg" alt="选择祈福对象" style="position: absolute; width: 100vw; height: 100vh;">
+        <button onclick="showPage('父母')" style="position: absolute; top: 11%; left: 23%; height: 35%; width: 18%;"></button>
+        <button onclick="showPage('伴侣')" style="position: absolute; top: 11%; right: 22%; height: 35%; width: 18%;"></button>
+        <button onclick="showPage('儿童')" style="position: absolute; bottom: 11%; left: 23%; height: 35%; width: 18%;"></button>
+        <button onclick="showPage('家宅')" style="position: absolute; bottom: 11%; right: 22%; height: 35%; width: 18%;"></button>
+
+    </div>
+    <!-- 父母 -->
+    <div id="父母" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望类型选择03/选择愿望类型-父母.mp4" type="video/mp4">
+        </video>
+        <button onclick="showPage('儿孙满堂')"  style="position: absolute; top: 46%; left: 6%; height: 15%; width: 23%;"></button>
+        <button onclick="showPage('福寿安康')" style="position: absolute; top: 46%; right: 5%; height: 15%; width: 23%;"></button>
+    </div>
+    <div id="儿孙满堂" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/儿孙满堂.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('儿孙满堂')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-儿孙满堂" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-儿孙满堂" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-儿孙满堂" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/儿孙满堂.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="儿孙满堂-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('儿孙满堂')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <div id="福寿安康" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/福寿安康.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('福寿安康')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-福寿安康" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-福寿安康" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-福寿安康" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/福寿安康.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="福寿安康-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('福寿安康')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <!-- 伴侣 -->
+    <div id="伴侣" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望类型选择03/选择愿望类型-伴侣.mp4" type="video/mp4">
+        </video>
+        <button onclick="showPage('早生贵子')"  style="position: absolute; top: 46%; left: 6%; height: 15%; width: 23%;"></button>
+        <button onclick="showPage('幸福美满')" style="position: absolute; top: 46%; right: 5%; height: 15%; width: 23%;"></button>
+    </div>
+    <div id="早生贵子" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/早生贵子.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('早生贵子')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-早生贵子" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-早生贵子" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-早生贵子" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/早生贵子.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="早生贵子-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('早生贵子')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <div id="幸福美满" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/幸福美满.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('幸福美满')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-幸福美满" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-幸福美满" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-幸福美满" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/幸福美满.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="幸福美满-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('幸福美满')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <!-- 儿童 -->
+    <div id="儿童" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望类型选择03/选择愿望类型-儿童.mp4" type="video/mp4">
+        </video>
+        <button onclick="showPage('功名学业')"  style="position: absolute; top: 46%; left: 6%; height: 15%; width: 23%;"></button>
+        <button onclick="showPage('健康成长')" style="position: absolute; top: 46%; right: 5%; height: 15%; width: 23%;"></button>
+    </div>
+    <div id="功名学业" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/功名学业.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('功名学业')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-功名学业" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-功名学业" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-功名学业" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/功名学业.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="功名学业-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('功名学业')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <div id="健康成长" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/健康成长.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('健康成长')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-健康成长" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-健康成长" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-健康成长" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/健康成长.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="健康成长-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('健康成长')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <!-- 家宅 -->
+    <div id="家宅" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望类型选择03/选择愿望类型-家宅.mp4" type="video/mp4">
+        </video>
+        <button onclick="showPage('富贵吉祥')"  style="position: absolute; top: 46%; left: 6%; height: 15%; width: 23%;"></button>
+        <button onclick="showPage('风调雨顺')" style="position: absolute; top: 46%; right: 5%; height: 15%; width: 23%;"></button>
+    </div>
+    <div id="富贵吉祥" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/富贵吉祥.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('富贵吉祥')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-富贵吉祥" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-富贵吉祥" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-富贵吉祥" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/富贵吉祥.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="富贵吉祥-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('富贵吉祥')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <div id="风调雨顺" class="page">
+        <video autoplay muted loop style="position: absolute; max-width: 100vw; max-height: 100vh;">
+            <source src="./video/主页/泥梦祥境界面/泥梦祥境界面/愿望输入界面04/风调雨顺.mp4" type="video/mp4">
+        </video>
+        <button onclick="submitFormAndShowPage('风调雨顺')" style="position: absolute; top: 60%; right: 2%; height: 7%; width: 13%;"></button>
+        <img src="./img/愿望.png" style="position: absolute; left: 44%; top: 6%; width: 50vw;">
+        <form id="wish-form" style="position: absolute; top: 70%; right: 5%;">
+            <textarea type="text" id="文字-风调雨顺" name="wish" placeholder="" class="textarea" style="width: 52vw; height: 19vh; "></textarea>
+        </form>
+    </div>
+    <div id="卡片下载-风调雨顺" class="page">
+        <img src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/卡片下载背景界面（无白色区域）.jpg" style="position: absolute; width: 100vw; height: 100vh;">
+        <img id="愿望-风调雨顺" src="./video/主页/输入愿望界面-静态/输入愿望界面-静态/祈福卡静态/风调雨顺.jpg" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 35vw;" crossorigin="anonymous">
+        <textarea id="风调雨顺-文字" class="textarea" style="position: absolute; top: 78%; left: 43%; padding: 0%; width: 17%; height: 10%;"></textarea>
+        <button onclick="downloadCard('风调雨顺')" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="introduce('查看介绍')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <div id="查看介绍" class="page">
+        <img id="介绍图片" alt="介绍图片" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); max-width: 100vw; max-height: 100vh;">
+        <button onclick="window.location.href='./home.html'" style="position: absolute; top: 47%; left: 7%; height: 10%; width: 23%;"></button>
+        <button onclick="showPage('抽卡页面')" style="position: absolute; top: 47%; right: 6%; height: 10%; width: 23%;"></button>
+    </div>
+    <canvas id="myCanvas" style="display: none;"></canvas>
+    <script>
+        function showPage(pageId) {
+            // 隐藏所有页面部分
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.style.display = 'none';
+            });
+            // 显示指定的页面部分
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.style.display = 'block';
+            }
+        }
+        function submitFormAndShowPage(pageId) {
+            // 获取表单中的文本内容
+            const wishText = document.getElementById('文字-' + pageId).value;
+            // 显示指定的页面部分
+            showPage('卡片下载-' + pageId);
+            // 将文本内容传递到目标页面的文本框中
+            const receivedWish = document.getElementById(pageId + '-文字');
+            receivedWish.value = wishText;
+        }
+        function downloadCard(myImage) {
+            const image = document.getElementById('愿望-' + myImage);
+            const textarea = document.getElementById(myImage + '-文字');
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // 等待图片加载完成
+            image.onload = function () {
+                canvas.width = image.width;
+                canvas.height = image.height;
+                ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+                ctx.font = 'large 微软雅黑';
+                ctx.fillStyle = 'black';
+                const text = textarea.value;
+                ctx.fillText(text, canvas.width * 0.3, canvas.height * 0.856);
+
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = myImage + '.png';
+                link.click();
+            };
+
+            // 如果图片已经加载完成，立即触发 onload 事件
+            if (image.complete) {
+                image.onload();
+            }
+        }
+        function introduce() {
+        // 获取当前显示页面的 id
+        const currentPage = document.querySelector('.page[style="display: block;"]');
+        const currentPageId = currentPage ? currentPage.id : '';
+        const wishType = currentPageId.replace('卡片下载-', '');
+        const imagePath = `./video/主页/泥梦祥境界面/泥梦祥境界面/泥塑介绍界面07/${wishType}.jpg`;
+        
+        // 设置介绍图片的 src 属性
+        const introImage = document.getElementById('介绍图片');
+        introImage.src = imagePath;
+        showPage('查看介绍');
+    }
+    </script>
+</html>
